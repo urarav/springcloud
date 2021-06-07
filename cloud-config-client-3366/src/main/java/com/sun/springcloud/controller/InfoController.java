@@ -8,18 +8,20 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @Author: SunQi
  * @Descriptions: SpringCloud:com.sun.springcloud.controller
- * @Data: Created in 0:08 2021/6/7
+ * @Data: Created in 11:17 2021/6/7
  * @Modified By:
  */
 @RestController
 @RefreshScope
-public class ConfigController {
+public class InfoController {
 
     @Value("${config.info}")
-    public String configInfo;
+    private String configInfo;
+    @Value("${server.port}")
+    private String serverPort;
 
     @GetMapping("/config/info")
-    public String getConfigInfo(){
-        return this.configInfo;
+    public String getConfigInfo() {
+        return "serverPort:"+this.serverPort+"\t"+"configInfo: "+this.configInfo;
     }
 }
