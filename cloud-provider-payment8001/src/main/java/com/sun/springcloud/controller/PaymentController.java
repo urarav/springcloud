@@ -54,6 +54,11 @@ public class PaymentController {
         return this.serverPort;
     }
 
+    @GetMapping("/payment/zipkin")
+    public String zipkin() {
+        return "zipkin link test";
+    }
+
     @GetMapping("/payment/discovery")
     public Object discovery() {
         List<String> services = discoveryClient.getServices();
